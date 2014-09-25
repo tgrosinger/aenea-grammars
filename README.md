@@ -19,10 +19,10 @@ The machine should have about 2GB of ram and two processors.
 9. python -m pip install jsonrpclib
 10. Take another snapshot of the VM
 11. Start a cmd window as administrator
-12. Navigate to C:\NatLink\NatLink\confignatlinkvocolaunimacro
-13. Run start_natlinkconfigfunctions.py then use the e option to enable
+12. Navigate to `C:\NatLink\NatLink\confignatlinkvocolaunimacro`
+13. Run `start_natlinkconfigfunctions.py` then use the e option to enable
 14. If problems are encountered, take a look at [this Github](https://github.com/simianhacker/code-by-voice/issues/2) issue for help
-15. Copy aenea/aenea.json.example to C:\NatLink\NatLink\MacroSystem and edit the ip to the ip of the host
+15. Copy `aenea/aenea.json.example` to `C:\NatLink\NatLink\MacroSystem` and edit the ip to the ip of the host
 16. Copy the dictation client from the client directory to the NatLink directory
 17. Disable the dictation window in Dragon so you can use the dictation client
 
@@ -30,17 +30,17 @@ The machine should have about 2GB of ram and two processors.
 
 These instructions were written for an machine running ubuntu 14.04 LTS.
 
-17. Go to the server (linux machine) and navigate in the aenea dir to server/linux_x11
-18. Copy config.py.example to config.py and edit, setting the ip to 0.0.0.0
-19. Install pip on the host machine (sudo apt-get install python-pip)
-20. Install xsel and xdotool (sudo apt-get install xsel xdotool)
+17. Go to the server (linux machine) and navigate in the aenea dir to `server/linux_x11`
+18. Copy `config.py.example` to `config.py` and edit, setting the ip to 0.0.0.0
+19. Install pip on the host machine (`sudo apt-get install python-pip`)
+20. Install xsel and xdotool (`sudo apt-get install xsel xdotool`)
 21. Use pip to install jsonrpclib, and yapsy
 
 ## Starting everything.
 
-1. On the server, start aenea/server/linux_x11/server_x11.py
+1. On the server, start `aenea/server/linux_x11/server_x11.py`
 2. On the client, start Dragon Naturally Speaking
-3. On the client, start the aenea_client.py
+3. On the client, start `aenea_client.py`
 4. Give the dictation window focus so it captures anything not covered by a grammar
 
 ## Microphone recommendations

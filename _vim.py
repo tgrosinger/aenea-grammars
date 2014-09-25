@@ -117,7 +117,7 @@ basics_mapping = aenea.configuration.make_grammar_commands('vim', {
 
     'up <n> (lines|line)': Key("%(n)d, up"),
     'down <n> (lines|line)': Key("%(n)d, down"),
-    'go to [line] <n>': Function(goto_line),
+    'go to [line] <n>': Key("escape") + Function(goto_line),
     'forward':  Key("escape, w, i"),
     'forward <n>': Key("escape, %(n)d, w, i"),
     'forend': Key("escape, e, i"),

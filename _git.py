@@ -9,21 +9,15 @@
 
 import aenea
 import aenea.configuration
-from aenea.lax import Key, Function
-from aenea import (
-    IntegerRef,
-    Text,
-    Dictation,
-    Choice
-)
-from _generic_edit import pressKeyMap
-from format import format_snake_case, format_pascal_case, format_camel_case
+from aenea.lax import Key
+from aenea import Text
 import dragonfly
 
 git_context = aenea.ProxyPlatformContext('linux')
 grammar = dragonfly.Grammar('git', context=git_context)
 
 git_mapping = aenea.configuration.make_grammar_commands('git', {
+    'git': Text("git"),
     'git ammend': Text("git commit --amend") + Key("enter"),
     'git commit': Text("git commit") + Key("enter"),
     'git trunk': Text("git co trunk-svn") + Key("enter"),
@@ -35,7 +29,9 @@ git_mapping = aenea.configuration.make_grammar_commands('git', {
     'git status': Text("git s") + Key("enter"),
     'git stat': Text("git show --stat") + Key("enter"),
     'git log': Text("git log") + Key("enter"),
+    'git push': Text("git push") + Key("enter"),
 })
+
 
 class Mapping(dragonfly.MappingRule):
     mapping = git_mapping
