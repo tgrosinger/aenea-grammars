@@ -20,8 +20,7 @@ import dragonfly
 
 from _generic_edit import pressKeyMap
 
-vim_context = aenea.ProxyPlatformContext('linux')
-
+vim_context = aenea.ProxyCustomAppContext(executable="gnome-terminal")
 grammar = dragonfly.Grammar('vim', context=vim_context)
 
 surroundCharsMap = {
@@ -69,7 +68,7 @@ basics_mapping = aenea.configuration.make_grammar_commands('vim', {
     'screen down': Key("escape, c-f"),
     'screen up': Key("escape, c-b"),
 
-    'append to [end of] [line] <n>': Function(goto_line) + Key("A"),
+    'append to [end of] [line] <n>': Key("escape") + Function(goto_line) + Key("A"),
     'append': Key("escape, A"),
     'prepend': Key("escape, I"),
     'insert': Key("i"),
@@ -78,13 +77,13 @@ basics_mapping = aenea.configuration.make_grammar_commands('vim', {
     'undo': Key("escape, u, i"),
     'scratch': Key("escape, u, i"),
     'escape': Key("escape"),
-    'filename': Key("c-g"),
+    'filename': Key("escape, c-g"),
     'save': Key("escape, colon, w, enter"),
     'save and quit': Key("escape, colon, w, q, enter"),
     'discard': Key("colon, q, exclamation"),
-    'change case':Key("escape, tilde"),
+    'change case':Key("escape, right, s-backtick, i, left"),
 
-    'find <text>': Key("slash") + Text("%(text)s")+ Key("enter"),
+    'find <text>': Key("escape, slash") + Text("%(text)s")+ Key("enter"),
     'next': Key("n"),
     'prev|previous': Key("N"),
     'clear search': Key("colon, n, o, h, enter"),
@@ -93,23 +92,22 @@ basics_mapping = aenea.configuration.make_grammar_commands('vim', {
     'replace mode': Key("R"),
 
     'easy motion': Key("escape, comma, comma, s"),
+    'en': Key("end"),
 
+    'select word': Key("escape, right, v, e"),
     'select until <pressKey>': Key("escape, v, t") + Text("%(pressKey)s"),
     'select including <pressKey>': Key("escape, v, f") + Text("%(pressKey)s"),
-    'delete until <pressKey>': Key("escape, d, t") + Text("%(pressKey)s"),
-    'delete including <pressKey>': Key("escape, d, f") + Text("%(pressKey)s"),
+    'dell until <pressKey>': Key("escape, d, t") + Text("%(pressKey)s"),
+    'dell including <pressKey>': Key("escape, d, f") + Text("%(pressKey)s"),
 
     'change [<n>] (word|words)': Key("escape, c, %(n)d, w"),
     'change word': Key("right, escape, c, i, w"),
-    'delete [<n>] (word|words)': Key("escape, d, %(n)d, w"),
-    'delete word': Key("right, escape, d, i, w"),
-    'delete (character|car)': Key("x"),
+    'dell [<n>] (word|words)': Key("escape, d, %(n)d, w"),
+    'dell [this] line': Key("escape, V, d"),
+    'dell line <n> (thru|through|to) <n2>': Key("escape") + Function(delete_lines),
 
-    'surround <n> (word|words) with <surroundChar>': Key("escape, c, %(n)d, w") + Text("%(surroundChar)s") + Key("c-r, quote"),
-    'change line': Key("escape, V, c"),
-    'delete line': Key("escape, V, d"),
-    'delete line <n> (thru|through|to) <n2>': Key("escape") + Function(delete_lines),
-
+    'yank': Key("y"),
+    'extract': Key("x"),
     'yank this line': Key("escape, y:2"),
     'yank line <n>': Key("escape") + Function(goto_line) + Key("y:2"),
     'yank line <n> (thru|through|to) <n2>': Key("escape") + Function(yank_lines),
@@ -118,7 +116,7 @@ basics_mapping = aenea.configuration.make_grammar_commands('vim', {
     'up <n> (lines|line)': Key("%(n)d, up"),
     'down <n> (lines|line)': Key("%(n)d, down"),
     'go to [line] <n>': Key("escape") + Function(goto_line),
-    'forward':  Key("escape, w, i"),
+    'forward':  Key("escape, right, w, i"),
     'forward <n>': Key("escape, %(n)d, w, i"),
     'forend': Key("escape, e, i"),
     'backward': Key("escape, b, i"),

@@ -1,3 +1,14 @@
+# Using This Repository
+
+Chances are you do not work in exactly the same way as I do. I use Vim as my
+primary editor, and generally work in either Go or Python. The rules and
+grammars that are shared in this repository reflect that and are designed to
+work in my workflow.
+
+That said, the grammars found here should be a good starting point either as
+examples or templates to help you write your own. It takes a while, but if they
+are built up over time I have found they can be very powerful.
+
 # Installation instructions
 
 ## Client installation instructions

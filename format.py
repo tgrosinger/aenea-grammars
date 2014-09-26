@@ -134,11 +134,12 @@ def format_squash(text):
         newText = '%s%s' % (newText, word)
     return newText
 
+
 def format_sentence_case(text):
     newText = []
     words = strip_dragon_info(text)
     for word in words:
-        if newText == "":
+        if newText == []:
             newText.append(word.title())
         else:
             newText.append(word.lower())

@@ -76,12 +76,16 @@ def close_function():
 
 def print_line():
     if mode == "python":
-        newText = "print()"
-        Text("%(text)s").execute({"text": newText})
+        Text("print()").execute()
         Key("left").execute()
     if mode == "gopher":
-        newText = "fmt.Println()"
-        Text("%(text)s").execute({"text": newText})
+        Text("fmt.Println()").execute()
+        Key("left").execute()
+
+
+def format_string():
+    if mode == "gopher":
+        Text("fmt.Sprintf()").execute()
         Key("left").execute()
 
 
@@ -101,12 +105,15 @@ def null():
 
 
 basics_mapping = aenea.configuration.make_grammar_commands('python', {
+    'var': Text("var "),
     'new class [named] <text>': Function(create_class),
     'new [public] (function|func) [named] <text>': Function(create_public_function),
     'new private (function|func) [named] <text>': Function(create_private_function),
     'new class function <text> [named] <text2>': Function(create_class_function),
     'close (function|func)': Function(close_function),
+    'new array': Key("lbracket, enter, enter, up, tab"),
     'print line': Function(print_line),
+    'format string': Function(format_string),
     'null': Function(null),
     'comment': Function(comment),
     'mode <language>': Function(switch_mode),
@@ -114,9 +121,9 @@ basics_mapping = aenea.configuration.make_grammar_commands('python', {
 
 
 operators_mapping = {
-    'defined':          Text(':= '),
-    'assign':           Text('= '),
-    'compare equal':    Text('== '),
+    'defined [as]':          Text(':= '),
+    'assign [to]':           Text('= '),
+    'compare (equal|to)':    Text('== '),
     'compare not equal': Text('!= '),
     'compare greater':  Text('> '),
     'compare less':     Text('< '),

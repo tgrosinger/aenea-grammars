@@ -181,7 +181,7 @@ pressKeyMap.update(functionKeyMap)
 formatMap = {
     "sentence case": ft.sentenceCase,
     "camel case": ft.camelCase,
-    "pascal case": ft.pascalCase,
+    "pass case": ft.pascalCase,
     "snake case": ft.snakeCase,
     "uppercase": ft.upperCase,
     "lowercase": ft.lowerCase,

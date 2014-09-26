@@ -16,12 +16,12 @@ window_context = aenea.ProxyPlatformContext('linux')
 grammar = dragonfly.Grammar('windows', context=window_context)
 
 window_mapping = aenea.configuration.make_grammar_commands('windows', {
-    'workspace right': Key("ca-left"),
-    'workspace left': Key("ca-right"),
-    'terminal left': Key("c-pgup"),
-    'terminal right': Key("c-pgdown"),
-    'terminal new [tab]': Key("cs-t"),
-    'terminal new window': Key("cs-n"),
+    'workspace one': Key("ca-1"),
+    'workspace two': Key("ca-2"),
+    '(terminal|term) left': Key("c-pgup"),
+    '(terminal|term) right': Key("c-pgdown"),
+    '(terminal|term) new [tab]': Key("cs-t"),
+    '(terminal|term) new window': Key("cs-n"),
     'switch (application|app)': Key("a-tab"),
 })
 
