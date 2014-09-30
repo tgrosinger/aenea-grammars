@@ -104,6 +104,20 @@ def null():
         Text("nil").execute()
 
 
+def true():
+    if mode == "python":
+        Text("True")
+    if mode == "gopher":
+        Text("true")
+
+
+def false():
+    if mode == "python":
+        Text("False")
+    if mode == "gopher":
+        Text("false")
+
+
 basics_mapping = aenea.configuration.make_grammar_commands('python', {
     'var': Text("var "),
     'new class [named] <text>': Function(create_class),
@@ -115,8 +129,59 @@ basics_mapping = aenea.configuration.make_grammar_commands('python', {
     'print line': Function(print_line),
     'format string': Function(format_string),
     'null': Function(null),
+    'true': Function(true),
+    'false': Function(false),
     'comment': Function(comment),
     'mode <language>': Function(switch_mode),
+
+    #  Common words
+    'util': Text("util"),
+    'air': Text("err"),
+    'query': Text("query"),
+    '(Jason|json)': Text("json"),
+    'upper (Jason|json)': Text("JSON"),
+
+    # Datatypes
+    'type-int': Text("int"),
+    'type-int 64': Text("int64"),
+    'type-int 32': Text("int32"),
+    'type-int 16': Text("int16"),
+    'type-bool': Text("bool"),
+    'type-string': Text("string"),
+
+    # Python
+    "pie-from": Text("from"),
+    "pie-none": Text("None"),
+    "pie-true": Text("True"),
+    "pie-false": Text("False"),
+    "pie-class method": Text("@classmethod\n"),
+    "pie-def": Text("def "),
+    "pie-for": Text("for "),
+    "pie-dict": Text("dict("),
+    "pie-set": Text("set("),
+    "pie-sum": Text("sum("),
+    "pie-len": Text("len("),
+    "pie-list": Text("list("),
+    "pie-tuple": Text("tuple("),
+    "pie is instance": Text("isinstance("),
+    "pie init": Text("__init__("),
+    "[pie] self dot": Text("self."),
+    "pie iter items": Text(".iteritems("),
+    "pie string join": Key("apostrophe, right")+Text(".join("),
+    "dunder": Text("__"),
+    "dunder main": Text("__main__"),
+    "dunder init": Text("__init__(self"),
+    "dunder around": Key("underscore:4, left:2"),
+
+    # Go lang
+    'go-from': Text("from"),
+    'go-true': Text("true"),
+    'go-false': Text("false"),
+    'go-none': Text("nil"),
+    'go-nil': Text("nil"),
+    'go-def': Text("func "),
+    'go-slice': Text("make([])") + Key("left"),
+    'go-struct': Text("type  struct {\n\n}") + Key("up:2, right:4"),
     })
 
 
