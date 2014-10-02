@@ -88,6 +88,8 @@ basics_mapping = aenea.configuration.make_grammar_commands('vim', {
     'tab <n>': Key("escape, comma, %(n)d"),
     'comma': Key("comma"),
     'comes': Key("comma, space"),
+    'listed': Key("escape, s-a, comma, enter"),
+    'cause': Key("colon, space"),
 
     # Finding text
     'find <text>': Key("escape, slash") + Text("%(text)s") + Key("enter"),
@@ -141,8 +143,7 @@ basics_mapping = aenea.configuration.make_grammar_commands('vim', {
     'down <n> (lines|line)': Key("%(n)d, down"),
     'go to [line] <n>': Key("escape") + Function(goto_line),
     'matching': Key("escape, percent"),
-    'easy motion': Key("escape, comma, comma, s"),
-    'en': Key("end"),
+    '(boop|easy motion)': Key("escape, comma, comma, s"),
     })
 
 

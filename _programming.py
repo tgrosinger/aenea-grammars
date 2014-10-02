@@ -26,7 +26,24 @@ grammar = dragonfly.Grammar('python', context=vim_context)
 mode = "gopher"
 mode_map = {
     "gopher": "gopher",
-    "python": "python"
+    "python": "python",
+    "sql": "sql",
+}
+
+sql_map = {
+    "update": "UPDATE ",
+    "select": "SELECT ",
+    "from": "FROM ",
+    "count": "COUNT ",
+    "values": "VALUES ",
+    "as": "AS ",
+    "when": "WHEN ",
+    "in": "IN ",
+    "and": "AND ",
+    "all": "ALL ",
+    "similar to": "SIMILAR TO ",
+    "like": "LIKE ",
+    "set": "SET ",
 }
 
 
@@ -96,6 +113,11 @@ def comment():
     if mode == "gopher":
         Text("// ").execute()
 
+def sql_word(sqlKeyword):
+    if mode != "sql":
+        sqlKeyword = sqlKeyword.lower().strip()
+    Text("%(text)s").execute({"text": sqlKeyword})
+
 
 def null():
     if mode == "python":
@@ -128,11 +150,12 @@ basics_mapping = aenea.configuration.make_grammar_commands('python', {
     'new array': Key("lbracket, enter, enter, up, tab"),
     'print line': Function(print_line),
     'format string': Function(format_string),
-    'null': Function(null),
+    '(null|nil)': Function(null),
     'true': Function(true),
     'false': Function(false),
     'comment': Function(comment),
     'mode <language>': Function(switch_mode),
+    '<sqlKeyword>': Function(sql_word),
 
     #  Common words
     'util': Text("util"),
@@ -140,6 +163,7 @@ basics_mapping = aenea.configuration.make_grammar_commands('python', {
     'query': Text("query"),
     '(Jason|json)': Text("json"),
     'upper (Jason|json)': Text("JSON"),
+    'extrahop': Text("extrahop"),  # Company name
 
     # Datatypes
     'type-int': Text("int"),
@@ -228,7 +252,8 @@ class Basics(dragonfly.MappingRule):
         IntegerRef('n', 1, 999),
         IntegerRef('n2', 1, 999),
         Choice("pressKey", pressKeyMap),
-        Choice("language", mode_map)
+        Choice("language", mode_map),
+        Choice("sqlKeyword", sql_map),
     ]
 
 

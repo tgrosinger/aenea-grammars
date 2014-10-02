@@ -1,0 +1,8 @@
+[Core]
+Name = Window plugin
+Module = xdotool
+
+[Documentation]
+Author = Tony Grosinger
+Version = 0.1
+Description = Plugin for manipulating the workspace using the xdotool command

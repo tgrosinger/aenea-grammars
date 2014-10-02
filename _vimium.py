@@ -30,6 +30,7 @@ window_mapping = {
     'page close': Key("c-w"),
     'page back': Key("s-l"),
     'page forward': Key("s-l"),
+    'refresh': Key("r"),
 
     #  Moving around
     'more': Key("j:10"),
@@ -49,7 +50,10 @@ gmail_mapping = {
     'open': Key("o"),
     'inbox': Key("g, i"),
     '[go to] label <text>': Key("g, l") + Text("%(text)s") + Key("enter"),
-    'trash': Key("#"),
+    'trash': Key("hash"),
+    'archive': Key("e"),
+    '(earl|early|earlier)': Key("j"),
+    '(late|later)': Key("k"),
 }
 
 
@@ -60,7 +64,7 @@ class Mapping(dragonfly.MappingRule):
         Dictation('text'),
     ]
 
-class MappingMail( dragonfly.MappingRule):
+class MappingMail(dragonfly.MappingRule):
      mapping = gmail_mapping
      extras = [
         Dictation('text')
