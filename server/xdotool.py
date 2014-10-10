@@ -9,7 +9,7 @@ def switch_app(appname, appnum=1):
     '''An RPC command to change the currently focused window by name
     within the focused desktop'''
 
-    command = "xdotool windowactivate --sync $(xdotool search --desktop $(xdotool get_desktop) \"%s\" | head -%s)" % (appname, appnum)
+    command = "xdotool windowactivate --sync $(xdotool search --desktop $(xdotool get_desktop) --name \"%s\" | head -%s)" % (appname, appnum)
     os.system(command)
 
 

@@ -31,6 +31,8 @@ window_mapping = {
     'page back': Key("s-l"),
     'page forward': Key("s-l"),
     'refresh': Key("r"),
+    'link': Key("f"),
+    'link new': Key("s-f"),
 
     #  Moving around
     'more': Key("j:10"),

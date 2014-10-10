@@ -164,6 +164,7 @@ basics_mapping = aenea.configuration.make_grammar_commands('python', {
     '(Jason|json)': Text("json"),
     'upper (Jason|json)': Text("JSON"),
     'extrahop': Text("extrahop"),  # Company name
+    'app': Text("app"),
 
     # Datatypes
     'type-int': Text("int"),
