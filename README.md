@@ -1,13 +1,26 @@
 # Using This Repository
 
-Chances are you do not work in exactly the same way as I do. I use Vim as my
-primary editor, and generally work in either Go or Python. The rules and
-grammars that are shared in this repository reflect that and are designed to
-work in my workflow.
+Chances are you do not work in exactly the same way as I do. I use Vim (find my 
+[vimrc here](https://github.com/tgrosinger/dotfiles)) as my primary editor, 
+and generally program in either Go or Python. The commands and grammars that 
+are shared in this repository reflect that and are designed to work in my 
+workflow.
 
 That said, the grammars found here should be a good starting point either as
 examples or templates to help you write your own. It takes a while, but if they
 are built up over time I have found they can be very powerful.
+
+## Contributing
+
+Want to help make getting started with voice coding easier? Send me a pull 
+request! 
+
+I would love to add more languages and more features. There are plenty 
+of commands that are missing, and even more that not work as well as they could. 
+Any help is welcome.
+
+And of course if you have a friend who struggles with RSI or carpal tunnel 
+syndrome please tell them there is a better way.
 
 # Installation instructions
 
