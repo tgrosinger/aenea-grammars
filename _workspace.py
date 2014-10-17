@@ -41,10 +41,10 @@ def switch_app_title(text):
     aenea.communications.server.switch_app(text, 1)
 
 window_mapping = aenea.configuration.make_grammar_commands('windows', {
-    'workspace one': Key("ca-1"),
-    'workspace two': Key("ca-2"),
-    'workspace left': Key("ca-left"),
-    'workspace right': Key("ca-right"),
+    'works one': Key("ca-1"),
+    'works two': Key("ca-2"),
+    'works left': Key("ca-left"),
+    'works right': Key("ca-right"),
     '(terminal|term) left': Key("c-pgup"),
     '(terminal|term) right': Key("c-pgdown"),
     '(terminal|term) new [tab]': Key("cs-t"),
@@ -53,9 +53,9 @@ window_mapping = aenea.configuration.make_grammar_commands('windows', {
 
     # Switching applications
     'switch (application|app)': Key("a-tab"),
-    'focus <appname>': Function(switch_app),
-    'focus <appname> <appnum>': Function(switch_app_numbered),
-    'focus title <text>': Function(switch_app_title),
+    '(focus|folk) <appname>': Function(switch_app),
+    '(focus|folk) <appname> <appnum>': Function(switch_app_numbered),
+    '(focus|folk) title <text>': Function(switch_app_title),
 
     # Terminal commands
     # dir is hard to say and recognize. Use something else
@@ -70,6 +70,9 @@ window_mapping = aenea.configuration.make_grammar_commands('windows', {
     '(pseudo|sudo|pseudo-)': Text("sudo "),
     '(apt|app) get': Text("sudo apt-get "),
     '(apt|app) get install': Text("sudo apt-get install "),
+    'Tony Grosinger': Text("Tony Grosinger"),
+    'Grosinger': Text("Grosinger"),
+    'email grosinger': Text("@grosinger.net"),
 })
 
 
