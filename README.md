@@ -1,7 +1,7 @@
 # Using This Repository
 
 Chances are you do not work in exactly the same way as I do. I use Vim (find my 
-[vimrc here](https://github.com/tgrosinger/dotfiles)) as my primary editor, 
+[.vimrc here](https://github.com/tgrosinger/dotfiles/blob/master/.vimrc)) as my primary editor, 
 and generally program in either Go or Python. The commands and grammars that 
 are shared in this repository reflect that and are designed to work in my 
 workflow.
@@ -24,7 +24,7 @@ syndrome please tell them there is a better way.
 
 # Installation instructions
 
-## Client installation instructions
+## Client
 
 These steps are meant to be performed on a Windows machine with an attached
 microphone. I suggest using a virtual machine as it will allow you to save
@@ -32,25 +32,23 @@ snapshots as you progress through the steps.
 
 The machine should have about 2GB of ram and two processors.
 
-1. Install Dragon NaturallySpeaking 13.0 to default location
+1. Install [Dragon NaturallySpeaking 13.0](http://www.nuance.com/for-individuals/by-product/dragon-for-pc/index.htm) to default location
 2. Take a snapshot of the VM
-3. Download and install Python 2.7.8 for x32
+3. Download and install [Python 2.7.8 for x32](https://www.python.org/downloads/windows/)
 4. Run [get-pip.py](https://bootstrap.pypa.io/get-pip.py) to install pip
-5. Install the latest release of pywin32 for Python 2.7
-6. Install the latest release of NatLink
-7. python -m pip install dragonfly
-8. python -m pip install pyparsing
-9. python -m pip install jsonrpclib
+5. Install the latest release of [pywin32 for Python 2.7](http://sourceforge.net/projects/pywin32/)
+6. Install the latest release of [NatLink](http://sourceforge.net/projects/natlink/)
+7. Install other dependencies (`python -m pip install dragonfly jsonrpclib pyparsing`)
 10. Take another snapshot of the VM
 11. Start a cmd window as administrator
 12. Navigate to `C:\NatLink\NatLink\confignatlinkvocolaunimacro`
-13. Run `start_natlinkconfigfunctions.py` then use the e option to enable
+13. Run `start_natlinkconfigfunctions.py` then use the `e` option to enable
 14. If problems are encountered, take a look at [this Github](https://github.com/simianhacker/code-by-voice/issues/2) issue for help
 15. Copy `aenea/aenea.json.example` to `C:\NatLink\NatLink\MacroSystem` and edit the ip to the ip of the host
 16. Copy the dictation client from the client directory to the NatLink directory
 17. Disable the dictation window in Dragon so you can use the dictation client
 
-## Server installation instructions
+## Server
 
 These instructions were written for an machine running ubuntu 14.04 LTS.
 
@@ -58,7 +56,7 @@ These instructions were written for an machine running ubuntu 14.04 LTS.
 18. Copy `config.py.example` to `config.py` and edit, setting the ip to 0.0.0.0
 19. Install pip on the host machine (`sudo apt-get install python-pip`)
 20. Install xsel and xdotool (`sudo apt-get install xsel xdotool`)
-21. Use pip to install jsonrpclib, and yapsy
+21. Use pip to install jsonrpclib, and yapsy (`sudo pip install jsonrpclib yapsy`)
 
 ## Starting everything.
 
@@ -72,4 +70,3 @@ These instructions were written for an machine running ubuntu 14.04 LTS.
 I am using the Yeti by Blue and have found it to perform very well in quiet
 environments, but it does have some trouble as the noise level increases or
 others start speaking. The on-mic mute button is a very nice feature.
-
