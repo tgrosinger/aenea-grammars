@@ -69,7 +69,7 @@ These instructions were written for an machine running ubuntu 14.04 LTS.
 
 ## Microphone recommendations
 
-I am using the Yeti by Blue and have found it to perform very well in quiet
+I am using the [Yeti by Blue](http://www.amazon.com/gp/product/B002VA464S/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B002VA464S&linkCode=as2&tag=boomet03-20&linkId=Y7B7OAY6UIX6JRG5) and have found it to perform very well in quiet
 environments, but it does have some trouble as the noise level increases or
 others start speaking. The on-mic mute button is a very nice feature.
 
