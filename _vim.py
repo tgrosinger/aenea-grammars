@@ -85,7 +85,7 @@ basics_mapping = aenea.configuration.make_grammar_commands('vim', {
     'save and quit': Key("escape, colon, w, q, enter"),
     'quit all': Key("escape, colon, q, a, enter"),
     'discard': Key("colon, q, exclamation"),
-    'tab <n>': Key("escape, comma, %(n)d"),
+    'vim tab <n>': Key("escape, comma, %(n)d"),
     'comma': Key("comma"),
     'comes': Key("comma, space"),
     'listed': Key("escape, s-a, comma, enter"),
@@ -106,10 +106,10 @@ basics_mapping = aenea.configuration.make_grammar_commands('vim', {
     'change case back': Key("escape, b, s-backtick, e, a"),
 
     # Word operations
-    'doord': Key("right, escape, d, i, w, i"),
-    'doord back': Key("right, escape, b, d, w, i"),
-    'doord <n>': Key("right, escape, %(n)d, d, w, i"),
-    'doord back <n>': Key("right, escape, %(n)d, b, %(n)d, d, w, i"),
+    '(doord|doored|gord)': Key("right, escape, d, i, w, i"),
+    '(doord|doored|gord) back': Key("right, escape, b, d, w, i"),
+    '(doord|doored|gord) <n>': Key("right, escape, %(n)d, d, w, i"),
+    '(doord|doored|gord) back <n>': Key("right, escape, %(n)d, b, %(n)d, d, w, i"),
     'chord': Key("right, escape, c, i, w"),
     'chord <n>': Key("escape, right, c, %(n)d, w"),
     'sword': Key("escape, right, v, e"),
