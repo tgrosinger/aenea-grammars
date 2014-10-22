@@ -53,11 +53,11 @@ basics_mapping = aenea.configuration.make_grammar_commands('vim', {
     'vim': Text("vim"),
 
     # Moving between splits
-    'win-left': Key("escape, c-h"),
-    'win-right': Key("escape, c-l"),
-    'win-up': Key("escape, c-k"),
-    'win-down': Key("escape, c-j"),
-    'win-close': Key("escape, colon, q, enter"),
+    'split-left': Key("escape, c-h"),
+    'split-right': Key("escape, c-l"),
+    'split-up': Key("escape, c-k"),
+    'split-down': Key("escape, c-j"),
+    'split-close': Key("escape, colon, q, enter"),
     'open [in] split': Key("s"),
     'open [in] tab': Key("t"),
 
@@ -84,7 +84,7 @@ basics_mapping = aenea.configuration.make_grammar_commands('vim', {
     'save': Key("escape, colon, w, enter"),
     'save and quit': Key("escape, colon, w, q, enter"),
     'quit all': Key("escape, colon, q, a, enter"),
-    'discard': Key("colon, q, exclamation"),
+    'discard': Key("escape, colon, q, exclamation"),
     'vim tab <n>': Key("escape, comma, %(n)d"),
     'comma': Key("comma"),
     'comes': Key("comma, space"),

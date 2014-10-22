@@ -41,7 +41,7 @@ python_mapping = aenea.configuration.make_grammar_commands('python', {
     # Python
     "true": Text("True"),
     "false": Text("False"),
-    '(none|null|nil)': Text("none"),
+    '(none|null|nil)': Text("None"),
     'print line': Text("print()") + Key("left"),
     "class method": Text("@classmethod\n"),
     "(def|define)": Text("def "),
