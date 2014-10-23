@@ -39,9 +39,6 @@ terminal_mapping = aenea.configuration.make_grammar_commands('terminal', {
     '(pseudo|sudo|pseudo-)': Text("sudo "),
     '(apt|app) get': Text("sudo apt-get "),
     '(apt|app) get install': Text("sudo apt-get install "),
-    'Tony Grosinger': Text("Tony Grosinger"),
-    'Grosinger': Text("Grosinger"),
-    'email grosinger': Text("@grosinger.net"),
 })
 
 

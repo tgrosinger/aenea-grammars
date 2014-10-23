@@ -7,39 +7,33 @@
 #
 # Licensed under LGPL
 
-import json
-import os
 import aenea
 import aenea.configuration
+from config import get_configuration
 
 # Window Managers
 import cinnamon
 import i3wm
-
-config_file_location = 'c:\NatLink\NatLink\MacroSystem\grammar_config.json'
 
 context = aenea.ProxyPlatformContext('linux')
 language_map = {
     "cinnamon":  cinnamon,
     "i3": i3wm
 }
+grammar = None
 
-if not os.path.isfile(config_file_location):
-    config_file = open(config_file_location, "w")
-    json.dump({"window-manager": ""}, config_file)
-    config_file.close()
-    print("Created new config file in %s" % config_file_location)
+config = get_configuration()
+if config is None or "window-manager" not in config:
+    print("Could not find window manager configuration in config file")
+    print("Aborting window manager load")
 else:
-    config_file = open(config_file_location)
-    config = json.load(config_file)
-    config_file.close()
-
     selected_language = language_map[config["window-manager"]]
     if selected_language is None:
-        print("Could not load your window manager grammar")
+        print("Selected window manager is invalid. Please consult the README")
     else:
         grammar = selected_language.get_grammar(context, config)
-        grammar.load()
+        if grammar is not None:
+            grammar.load()
 
 
 def unload():

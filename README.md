@@ -1,10 +1,10 @@
 # Using This Repository
 
-Chances are you do not work in exactly the same way as I do. I use Vim (find my 
-[.vimrc here](https://github.com/tgrosinger/dotfiles/blob/master/.vimrc)) as my primary editor, 
-and generally program in either Go or Python. The commands and grammars that 
-are shared in this repository reflect that and are designed to work in my 
-workflow.
+Chances are you do not work in exactly the same way as I do. I use Vim (find my
+[.vimrc here](https://github.com/tgrosinger/dotfiles/blob/master/.vimrc)) as my
+primary editor, and generally program in either Go or Python. The commands and
+grammars that are shared in this repository reflect that and are designed to
+work in my workflow.
 
 That said, the grammars found here should be a good starting point either as
 examples or templates to help you write your own. It takes a while, but if they
@@ -12,17 +12,68 @@ are built up over time I have found they can be very powerful.
 
 ## Contributing
 
-Want to help make getting started with voice coding easier? Send me a pull 
-request! 
+Want to help make getting started with voice coding easier? Send me a pull
+request!
 
-I would love to add more languages and more features. There are plenty 
-of commands that are missing, and even more that not work as well as they could. 
+I would love to add more languages and more features. There are plenty
+of commands that are missing, and even more that not work as well as they could.
 Any help is welcome.
 
-And of course if you have a friend who struggles with RSI or carpal tunnel 
+And of course if you have a friend who struggles with RSI or carpal tunnel
 syndrome please tell them there is a better way.
 
+### TO-DO List
+
+Here are some tasks or know issues that need to be worked on:
+
+* Add support for javascript language
+* Improve support for Go language
+* Improve support for i3 window manager
+
+# Grammar Configuration
+
+Some of the grammars in this repository use a configuration file to increase
+their flexibility. Rename the `grammar_config.json.sample` file to
+`grammar_config.json` and use the guide below to make the required configuration
+changes.
+
+## Window Manager Options
+
+*window-manager*
+
+Choose from "cinnamon" or "i3" to specify what type of window manager to use.
+
+*i3-mod-key*
+
+If using the i3 window manager, use this option to specify the mod key. Options
+are "alt", "win", and "ctrl".
+
+*company-name*
+
+If set, this word will be put in a grammar as-is, allowing Aenea to correctly
+spell or write your company name.
+
+*full-name*
+
+If set, adds a command "my full name", which outputs the value specified.
+
+*first-name*
+
+If set, as a command "my first name", which outputs the value specified.
+
+*last-name*
+
+If set, adds a command "my last name", which outputs the value specified.
+
+*email-address*
+
+If set, adds a command "my email", which outputs the value specified.
+
 # Installation instructions
+
+These instructions will take you from a fresh installation of Windows and Ubuntu
+to a working voice controlled setup. If you are just looking for the grammars
+you can skip this section.
 
 ## Client
 
@@ -65,7 +116,7 @@ These instructions were written for an machine running ubuntu 14.04 LTS.
 3. On the client, start `aenea_client.py`
 4. Give the dictation window focus so it captures anything not covered by a grammar
 
-## Microphone recommendations
+# Microphone recommendations
 
 I am using the [Yeti by Blue](http://www.amazon.com/gp/product/B002VA464S/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B002VA464S&linkCode=as2&tag=boomet03-20&linkId=Y7B7OAY6UIX6JRG5) and have found it to perform very well in quiet
 environments, but it does have some trouble as the noise level increases or

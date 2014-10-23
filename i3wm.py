@@ -19,39 +19,53 @@ except ImportError:
     raise
 
 
-i3wm_mapping = aenea.configuration.make_grammar_commands('i3wm', {
-    '(works|workspace) <n>': Key("a-%(n)d"),
-    'lock screen': Key("a-d") + Text("i3lock") + Key("enter"),
-    '(win|window) left': Key("a-j"),
-    '(win|window) right': Key("a-semicolon"),
-    '(win|window) up': Key("a-l"),
-    '(win|window) down': Key("a-k"),
-    'full-screen': Key("a-f"),
-    '(win|window) stacking': Key("a-s"),
-    '(win|window) default': Key("a-e"),
-    '(win|window) tabbed': Key("a-w"),
-
-    '(win|window) horizontal': Key("a-h"),
-    '(win|window) vertical': Key("a-v"),
-    '(win|window) terminal': Key("a-enter"),
-    '(win|window) vertical (term|terminal)': Key("a-v, a-enter"),
-    '(win|window) horizontal (term|terminal)': Key("a-h, a-enter"),
-
-    '(win|window) (kill|close)': Key("a-s-q"),
-    '(win|window) launch': Key("a-d"),
-})
-
-
-class Mapping(dragonfly.MappingRule):
-    mapping = i3wm_mapping
-    extras = [
-        IntegerRef('n', 1, 99),
-        Dictation('text'),
-        dragonfly.IntegerRef('appnum', 1, 99),
-    ]
-
-
 def get_grammar(context, config):
+    if "i3-mod-key" not in config:
+        print("Missing required 'i3-mod-key' in config file")
+        return None
+
+    mod_key = config["i3-mod-key"]
+    mod_char = "a"
+    if mod_key == "ctrl":
+        mod_char = "c"
+    elif mod_key == "alt":
+        mod_char = "a"
+    elif mod_key == "win":
+        mod_char == "w"
+    else:
+        print("Invalid value specified for 'i3-mod-key' in config file")
+        return None
+
+    # FIXME: This is nested because we need access to the mod_char
+    class Mapping(dragonfly.MappingRule):
+        mapping = aenea.configuration.make_grammar_commands('i3wm', {
+            '(works|workspace) <n>': Key(mod_char + "-%(n)d"),
+            'lock screen': Key(mod_char + "-d") + Text("i3lock") + Key("enter"),
+            '(win|window) left': Key(mod_char + "-j"),
+            '(win|window) right': Key(mod_char + "-semicolon"),
+            '(win|window) up': Key(mod_char + "-l"),
+            '(win|window) down': Key(mod_char + "-k"),
+            'full-screen': Key(mod_char + "-f"),
+            '(win|window) stacking': Key(mod_char + "-s"),
+            '(win|window) default': Key(mod_char + "-e"),
+            '(win|window) tabbed': Key(mod_char + "-w"),
+
+            '(win|window) horizontal': Key(mod_char + "-h"),
+            '(win|window) vertical': Key(mod_char + "-v"),
+            '(win|window) terminal': Key(mod_char + "-enter"),
+            '(win|window) vertical (term|terminal)': Key(mod_char + "-v, a-enter"),
+            '(win|window) horizontal (term|terminal)': Key(mod_char + "-h, a-enter"),
+
+            '(win|window) (kill|close)': Key(mod_char + "-s-q"),
+            '(win|window) launch': Key(mod_char + "-d"),
+        })
+        extras = [
+            IntegerRef('n', 1, 99),
+            Dictation('text'),
+            dragonfly.IntegerRef('appnum', 1, 99),
+        ]
+
+
     i3wm_grammar = dragonfly.Grammar('i3wm', context=context)
-    i3wm_grammar.add_rule(Mapping())
+    i3wm_grammar.add_rule(Mapping(mod_char))
     return i3wm_grammar

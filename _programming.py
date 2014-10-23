@@ -23,9 +23,9 @@ vim_context = aenea.ProxyPlatformContext('linux')
 generic_grammar = dragonfly.Grammar('generic', context=vim_context)
 
 language_map = {
-    "gopher": go_grammar.get_grammar(vim_context),
-    "python": python_grammar.get_grammar(vim_context),
-    "sql":    sql_grammar.get_grammar(vim_context),
+    "(go|gopher)": go_grammar.get_grammar(vim_context),
+    "python":      python_grammar.get_grammar(vim_context),
+    "sql":         sql_grammar.get_grammar(vim_context),
 }
 
 
@@ -49,7 +49,6 @@ basics_mapping = aenea.configuration.make_grammar_commands('python', {
     'query': Text("query"),
     '(Jason|json)': Text("json"),
     'upper (Jason|json)': Text("JSON"),
-    'extrahop': Text("extrahop"),  # Company name
     'app': Text("app"),
     })
 
