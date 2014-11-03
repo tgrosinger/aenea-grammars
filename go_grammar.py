@@ -62,6 +62,10 @@ go_mapping = aenea.configuration.make_grammar_commands('golang', {
     'def': Text("func "),
     'slice': Text("make([])") + Key("left"),
     'struct': Text("type  struct {\n\n}") + Key("up:2, right:4"),
+
+    # Common Constructs
+    'handler params': Text("w http.ResponseWriter, r *http.Request"),
+    'import statement': Text("import(\n\t\n)") + Key("up, right"),
 })
 
 

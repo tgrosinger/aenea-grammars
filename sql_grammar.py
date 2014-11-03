@@ -23,6 +23,7 @@ sql_map = {
     "as": "AS ",
     "when": "WHEN ",
     "in": "IN ",
+    "into": "INTO ",
     "and": "AND ",
     "all": "ALL ",
     "similar to": "SIMILAR TO ",
@@ -41,6 +42,7 @@ class SQL(dragonfly.MappingRule):
     extras = [
         Choice('sqlKeyword', sql_map,)
     ]
+
 
 def get_grammar(context):
     sql_grammar = dragonfly.Grammar('sql', context=context)
