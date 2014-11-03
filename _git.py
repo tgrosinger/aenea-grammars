@@ -18,18 +18,26 @@ grammar = dragonfly.Grammar('git', context=git_context)
 
 git_mapping = aenea.configuration.make_grammar_commands('git', {
     'git': Text("git"),
-    'git ammend': Text("git commit --amend") + Key("enter"),
+
+    'git amend': Text("git commit --amend") + Key("enter"),
     'git commit': Text("git commit") + Key("enter"),
-    'git trunk': Text("git co trunk-svn") + Key("enter"),
-    'git pull': Text("git svn rebase") + Key("enter"),
-    'git rebase': Text("git rebase trunk-svn") + Key("enter"),
-    'git interactive rebase': Text("git rebase -i trunk-svn") + Key("enter"),
+    'git pull': Text("git pull") + Key("enter"),
     'git branches': Text("git branch -l") + Key("enter"),
-    'git checkout': Text("git co "),
-    'git status': Text("git s") + Key("enter"),
+    'git status': Text("git status") + Key("enter"),
     'git stat': Text("git show --stat") + Key("enter"),
     'git log': Text("git log") + Key("enter"),
     'git push': Text("git push") + Key("enter"),
+
+    # Incomplete Commands
+    'git add': Text("git add "),
+    'git checkout': Text("git checkout "),
+    'git interactive rebase': Text("git rebase -i "),
+
+    # SVN Commands
+    'git trunk': Text("git checkout trunk-svn") + Key("enter"),
+    'git svn pull': Text("git svn rebase") + Key("enter"),
+    'git rebase': Text("git rebase trunk-svn") + Key("enter"),
+    'git svn rebase interactive': Text("git rebase -i trunk-svn") + Key("enter"),
 })
 
 
