@@ -56,7 +56,7 @@ def get_grammar(context, config):
             '(win|window) vertical (term|terminal)': Key(mod_char + "-v, a-enter"),
             '(win|window) horizontal (term|terminal)': Key(mod_char + "-h, a-enter"),
 
-            '(win|window) (kill|close)': Key(mod_char + "-s-q"),
+            '(win|window) (kill|close)': Key(mod_char + "s-q"),
             '(win|window) launch': Key(mod_char + "-d"),
         })
         extras = [
