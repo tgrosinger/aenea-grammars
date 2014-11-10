@@ -36,11 +36,13 @@ def goto_line(n):
         Key(c).execute()
     Key("G").execute()
 
+
 def yank_lines(n, n2):
     goto_line(n)
     Key("V").execute()
     goto_line(n2)
     Key("y").execute()
+
 
 def delete_lines(n, n2):
     goto_line(n)
@@ -74,7 +76,7 @@ basics_mapping = aenea.configuration.make_grammar_commands('vim', {
     'nope <n>': Key("escape") + Function(goto_line) + Key("A"),
 
     'prepend': Key("escape, I"),
-    'insert': Key("i"),
+    'insert': Key("escape, i"),
     'insert below': Key("escape, o"),
     'insert above': Key("escape, O"),
     'undo': Key("escape, u, i"),
@@ -88,13 +90,16 @@ basics_mapping = aenea.configuration.make_grammar_commands('vim', {
     'vim tab <n>': Key("escape, comma, %(n)d"),
     'comma': Key("comma"),
     'comes': Key("comma, space"),
-    'listed': Key("escape, s-a, comma, enter"),
+    'bish': Key("right, comma, space"),
     'cause': Key("colon, space"),
+    'rook': Key("right, colon, space"),
+    'listed': Key("escape, s-a, comma, enter"),
+    'fish': Key("right, rparen"),
 
     # Finding text
     'find <text>': Key("escape, slash") + Text("%(text)s") + Key("enter"),
-    'next': Key("n"),
-    'prev|previous': Key("N"),
+    'next': Key("escape, n"),
+    'prev|previous': Key("escape, N"),
     'clear search': Key("escape, colon, n, o, h, enter"),
 
     # Character operations

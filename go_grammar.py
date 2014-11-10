@@ -66,6 +66,15 @@ go_mapping = aenea.configuration.make_grammar_commands('golang', {
     # Common Constructs
     'handler params': Text("w http.ResponseWriter, r *http.Request"),
     'import statement': Text("import(\n\t\n)") + Key("up, right"),
+
+    # Vim specific commands for Go
+    # TODO: Find a way to only import these if Vim is in context
+    'go format': Key("escape, colon") + Text("GoFmt") + Key("enter, i"),
+    'go imports': Key("escape, colon") + Text("GoImports") + Key("enter, i"),
+    'go (def|definition)': Key("escape, colon") + Text("GoDef") + Key("enter, i"),
+    'go lint': Key("escape, colon") + Text("GoLint") + Key("enter, i"),
+    'go (doc|docs)': Key("escape, colon") + Text("GoDoc") + Key("enter, i"),
+    'go info': Key("escape, colon") + Text("GoInfo") + Key("enter"),
 })
 
 
