@@ -56,7 +56,9 @@ basics_mapping = aenea.configuration.make_grammar_commands('vim', {
 
     # Moving between splits
     'split-left': Key("escape, c-h"),
+    'split-left <n>': Key("escape, c-h:%(n)d"),
     'split-right': Key("escape, c-l"),
+    'split-right <n>': Key("escape, c-l:%(n)d"),
     'split-up': Key("escape, c-k"),
     'split-down': Key("escape, c-j"),
     'split-close': Key("escape, colon, q, enter"),
@@ -64,10 +66,13 @@ basics_mapping = aenea.configuration.make_grammar_commands('vim', {
     'open [in] tab': Key("t"),
 
     # Moving viewport
-    'bund': Key("escape, 2, 0, c-y"),
-    'fund': Key("escape, 2, 0, c-e"),
-    'screen down': Key("escape, c-f"),
-    'screen up': Key("escape, c-b"),
+    'bund': Key("escape, 2, 0, c-y, i"),
+    'fund': Key("escape, 2, 0, c-e, i"),
+    'screen down': Key("escape, c-f, i"),
+    'screen up': Key("escape, c-b, i"),
+    'screen center': Key("escape, z, period, i"),
+    'screen top': Key("escape, z, t, i"),
+    'screen bottom': Key("escape, z, b, i"),
 
     # Append to line
     'noop <n>': Key("escape") + Function(goto_line) + Key("A, enter"),
@@ -87,12 +92,12 @@ basics_mapping = aenea.configuration.make_grammar_commands('vim', {
     'save and quit': Key("escape, colon, w, q, enter"),
     'quit all': Key("escape, colon, q, a, enter"),
     'discard': Key("escape, colon, q, exclamation"),
-    'vim tab <n>': Key("escape, comma, %(n)d"),
+    '(vim|vic) tab <n>': Key("escape, comma, %(n)d"),
     'comma': Key("comma"),
     'comes': Key("comma, space"),
     'bish': Key("right, comma, space"),
     'cause': Key("colon, space"),
-    'rook': Key("right, colon, space"),
+    '(rook|Brook|rock)': Key("right, colon, space"),
     'listed': Key("escape, s-a, comma, enter"),
     'fish': Key("right, rparen"),
 
@@ -138,6 +143,11 @@ basics_mapping = aenea.configuration.make_grammar_commands('vim', {
     'dell until <pressKey>': Key("escape, d, t") + Text("%(pressKey)s"),
     'dell including <pressKey>': Key("escape, d, f") + Text("%(pressKey)s"),
 
+    # Fancy operations
+    'clay': Key("escape, c, i, dqoute"),
+    'yip': Key("escape, right, y, i, lparen"),
+    'yib': Key("escape, right, y, i lbrace"),
+
     # Copy and Paste
     'yank': Key("y"),
     'extract': Key("x"),
@@ -149,6 +159,13 @@ basics_mapping = aenea.configuration.make_grammar_commands('vim', {
     'go to [line] <n>': Key("escape") + Function(goto_line),
     'matching': Key("escape, percent"),
     '(boop|easy motion)': Key("escape, comma, comma, s"),
+    'rash': Key("escape, down, s-a"),
+
+    # Plug-ins
+    'curb': Key("c-p"),
+    'curb tab': Key("c-t"),
+    'curb split': Key("c-v"),
+    'nerd': Key("escape, colon") + Text("NERDTreeToggle") + Key("enter"),
     })
 
 

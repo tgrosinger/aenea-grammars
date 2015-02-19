@@ -33,7 +33,7 @@ screen_mapping = aenea.configuration.make_grammar_commands('screen', {
 class Mapping(dragonfly.MappingRule):
     mapping = screen_mapping
     extras = [
-        IntegerRef('n', 1, 9)
+        IntegerRef('n', 0, 10)
     ]
 
 grammar.add_rule(Mapping())

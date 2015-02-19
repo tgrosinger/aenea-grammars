@@ -39,7 +39,7 @@ tmux_mapping = aenea.configuration.make_grammar_commands('tmux', {
 class Mapping(dragonfly.MappingRule):
     mapping = tmux_mapping
     extras = [
-        IntegerRef('n', 1, 9)
+        IntegerRef('n', 0, 10)
     ]
 
 grammar.add_rule(Mapping())
