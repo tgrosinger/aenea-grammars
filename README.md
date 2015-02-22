@@ -16,8 +16,8 @@ Want to help make getting started with voice coding easier? Send me a pull
 request!
 
 I would love to add more languages and more features. There are plenty
-of commands that are missing, and even more that not work as well as they could.
-Any help is welcome.
+of commands that are missing, and even more that not work as well as they
+could. Any help is welcome.
 
 And of course if you have a friend who struggles with RSI or carpal tunnel
 syndrome please tell them there is a better way.
@@ -27,8 +27,9 @@ syndrome please tell them there is a better way.
 Here are some tasks or know issues that need to be worked on:
 
 * Add support for javascript language
-* Improve support for Go language
-* Improve support for i3 window manager
+* Improve editing. Currently creating new code is significantly easier 
+  than refactoring old code. This means better support for selecting,
+  copying, and editing words and lines.
 
 # Grammar Configuration
 
@@ -118,6 +119,4 @@ These instructions were written for an machine running ubuntu 14.04 LTS.
 
 # Microphone recommendations
 
-I am using the [Yeti by Blue](http://www.amazon.com/gp/product/B002VA464S/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B002VA464S&linkCode=as2&tag=boomet03-20&linkId=Y7B7OAY6UIX6JRG5) and have found it to perform very well in quiet
-environments, but it does have some trouble as the noise level increases or
-others start speaking. The on-mic mute button is a very nice feature.
+I previously used the [Yeti by Blue](http://www.amazon.com/gp/product/B002VA464S/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B002VA464S&linkCode=as2&tag=boomet03-20&linkId=Y7B7OAY6UIX6JRG5) and while it worked well in quiet environments, it slowed down greatly as the noise level increased. I am now using (and highly recommend) the [Sennheiser MD431-II](http://www.amazon.com/gp/product/B0015AAY64/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B0015AAY64&linkCode=as2&tag=boomet03-20&linkId=5SAGDVUHAUKJAJXG) with the [Focusrite Scarlett Solo](http://www.amazon.com/gp/product/B00MTXU2DG/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B00MTXU2DG&linkCode=as2&tag=boomet03-20&linkId=R6JFV42AZQN6S3HC). It is certainly a price jump, but its performance is outstanding, even when others are talking very near me. Keep the gain low, and speak directly into the microphone.
