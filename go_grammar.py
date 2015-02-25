@@ -59,7 +59,7 @@ go_mapping = aenea.configuration.make_grammar_commands('golang', {
     'true': Text("true"),
     'false': Text("false"),
     '(null|nil|none)': Text("nil"),
-    'def': Text("func "),
+    '(def|deaf)': Text("func()") + Key("left"),
     'slice': Text("make([])") + Key("left"),
     'struct': Text("type  struct {\n\n}") + Key("up:2, right:4"),
 
@@ -69,12 +69,19 @@ go_mapping = aenea.configuration.make_grammar_commands('golang', {
 
     # Vim specific commands for Go
     # TODO: Find a way to only import these if Vim is in context
-    'go format': Key("escape, colon") + Text("GoFmt") + Key("enter, i"),
-    'go imports': Key("escape, colon") + Text("GoImports") + Key("enter, i"),
-    'go (def|definition)': Key("escape, colon") + Text("GoDef") + Key("enter, i"),
-    'go lint': Key("escape, colon") + Text("GoLint") + Key("enter, i"),
-    'go (doc|docs)': Key("escape, colon") + Text("GoDoc") + Key("enter, i"),
-    'go info': Key("escape, colon") + Text("GoInfo") + Key("enter"),
+    'help format':            Key("escape, right, colon") + Text("GoFmt") + Key("enter, i"),
+    'help imports':           Key("escape, right, colon") + Text("GoImports")  + Key("enter, i"),
+    'help (deaf|def|definition)': Key("escape, right, colon") + Text("GoDef")  + Key("enter, i"),
+    'help (dock|docks)':      Key("escape, right, colon") + Text("GoDoc")      + Key("enter, i"),
+    'help browser':           Key("escape, right, colon") + Text("GoDocBrowser") + Key("enter, i"),
+    'help lint':              Key("escape, right, colon") + Text("GoLint")     + Key("enter"),
+    'help info':              Key("escape, right, colon") + Text("GoInfo")     + Key("enter"),
+    'help describe':          Key("escape, right, colon") + Text("GoDescribe") + Key("enter"),
+    'help check':             Key("escape, right, colon") + Text("GoErrCheck") + Key("enter"),
+    'help (collars|callers)': Key("escape, right, colon") + Text("GoCallers")  + Key("enter"),
+    'help (collies|callees)': Key("escape, right, colon") + Text("GoCallees")  + Key("enter"),
+    'help (vet|pet|bet)':     Key("escape, right, colon") + Text("GoVet")      + Key("enter"),
+    'help play':              Key("colon") + Text("GoPlay")             + Key("enter"),
 })
 
 

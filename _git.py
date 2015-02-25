@@ -27,18 +27,23 @@ git_mapping = aenea.configuration.make_grammar_commands('git', {
     'git stat': Text("git show --stat") + Key("enter"),
     'git log': Text("git log") + Key("enter"),
     'git push': Text("git push") + Key("enter"),
+    'git diff': Text("git diff") + Key("enter"),
+
+    # https://github.com/tgrosinger/dotfiles/blob/master/.gitconfig#L15
+    'git hist': Text("git hist") + Key("enter"),
 
     # Incomplete Commands
     'git add': Text("git add "),
     'git checkout': Text("git checkout "),
     'git interactive rebase': Text("git rebase -i "),
     'git rebase': Text("git rebase "),
+    'git push to': Text("git push"),
 
     # SVN Commands
     'git trunk': Text("git checkout trunk-svn") + Key("enter"),
-    'git svn pull': Text("git svn rebase") + Key("enter"),
-    'git svn rebase interactive': Text("git rebase -i trunk-svn") + Key("enter"),
-    'git svn rebase': Text("git rebase trunk-svn") + Key("enter"),
+    'git SVN pull': Text("git svn rebase") + Key("enter"),
+    'git SVN rebase interactive': Text("git rebase -i trunk-svn") + Key("enter"),
+    'git SVN rebase': Text("git rebase trunk-svn") + Key("enter"),
 })
 
 

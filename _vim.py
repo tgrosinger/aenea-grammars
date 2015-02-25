@@ -66,6 +66,7 @@ basics_mapping = aenea.configuration.make_grammar_commands('vim', {
     'open [in] tab': Key("t"),
 
     # Moving viewport
+    'set number': Key("escape") + Text(":set number") + Key("enter"),
     'bund': Key("escape, 2, 0, c-y, i"),
     'fund': Key("escape, 2, 0, c-e, i"),
     'screen down': Key("escape, c-f, i"),
@@ -147,6 +148,7 @@ basics_mapping = aenea.configuration.make_grammar_commands('vim', {
     'clay': Key("escape, c, i, dqoute"),
     'yip': Key("escape, right, y, i, lparen"),
     'yib': Key("escape, right, y, i lbrace"),
+    'dap': Key("escape, right, s-d, s-a"),
 
     # Copy and Paste
     'yank': Key("y"),
@@ -158,8 +160,8 @@ basics_mapping = aenea.configuration.make_grammar_commands('vim', {
     'down <n> (lines|line)': Key("%(n)d, down"),
     'go to [line] <n>': Key("escape") + Function(goto_line),
     'matching': Key("escape, percent"),
-    '(boop|easy motion)': Key("escape, comma, comma, s"),
     'rash': Key("escape, down, s-a"),
+    'back': Key("escape, c-o"),
 
     # Plug-ins
     'curb': Key("c-p"),
