@@ -31,7 +31,7 @@ def get_grammar(context, config):
     elif mod_key == "alt":
         mod_char = "a"
     elif mod_key == "win":
-        mod_char == "w"
+        mod_char = "w"
     else:
         print("Invalid value specified for 'i3-mod-key' in config file")
         return None
