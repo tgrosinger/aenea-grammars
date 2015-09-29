@@ -28,7 +28,7 @@ window_mapping = {
     'page new': Key("c-t"),
     'page reopen': Key("cs-t"),
     'page close': Key("c-w"),
-    'page back': Key("s-l"),
+    'page back': Key("s-h"),
     'page forward': Key("s-l"),
     'refresh': Key("r"),
     'link': Key("f"),
