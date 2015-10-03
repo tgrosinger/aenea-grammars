@@ -33,7 +33,7 @@ terminal_mapping = aenea.configuration.make_grammar_commands('terminal', {
     '(terminal|term) left': Key("c-pgup"),
     '(terminal|term) right': Key("c-pgdown"),
     '(terminal|term) new [tab]': Key("cs-t"),
-    '(terminal|term)  (close|exit)': Key("c-c") + Text("exit") + Key("enter"),
+    '(terminal|term) (close|exit)': Key("c-c") + Text("exit") + Key("enter"),
 
     # Common words
     '(pseudo|sudo|pseudo-)': Text("sudo "),
